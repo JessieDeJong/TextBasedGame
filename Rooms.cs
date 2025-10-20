@@ -14,17 +14,9 @@ namespace TextBasedAdventure
 
     public class Rooms
     {
-        public static readonly List<Room> _allRooms = new List<Room>();
-        public Room currentRoom { get; set; }
-
-        public Rooms()
+        public FightOutcome Fight(Inventory inventory, Player player)
         {
-            currentRoom = startRoom;
-        }
-
-        public FightOutcome Fight(Inventory inventory)
-        {
-            if (currentRoom.hasMonster)
+            if (player.currentRoom.hasMonster)
             {
                 if (inventory.isItemInList("sword"))
                 {
@@ -32,7 +24,7 @@ namespace TextBasedAdventure
                     Console.WriteLine("Luckily you had picked up a very sharp sword.");
                     Console.WriteLine("With one big swing you cut the big beast.");
                     Console.WriteLine("You just defeated the monster!");
-                    currentRoom.hasMonster = false;
+                    player.currentRoom.hasMonster = false;
                     return FightOutcome.PlayerWon;
                 }
                 else

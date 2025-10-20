@@ -49,19 +49,14 @@ namespace TextBasedAdventure
             {
                 returnString += "you do not have any items in your inventory right now.";
             }
-            else
+            for (int i = 0; i < _inventory.Count; i++)
             {
-                for (int i = 0; i < _inventory.Count; i++)
+                returnString += _inventory[i].Id;
+                if (i < _inventory.Count - 1)
                 {
-                    if (i == (_inventory.Count -1))
-                    {
-                        returnString += _inventory[i].Id + ".";
-                    }
-                    else
-                    {
-                        returnString += _inventory[i].Id + ", ";
-                    }
+                    returnString += $", {_inventory[i].Id}";
                 }
+                returnString += $"{_inventory[i].Id}.";
             }
             return returnString;
         }

@@ -1,104 +1,108 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using TextBasedAdventure;
 
-namespace TextBasedAdventure
+public class Room
 {
-    public class Room
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public bool isDeadly { get; set; }
+    public bool hasMonster { get; set; }
+    public bool isLocked { get; set; }
+    public List<Item> itemList { get; set; } = new List<Item>();
+    public Dictionary<Direction, Room> Paths { get; } = new();
+
+
+    public Room(string name, string description)
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool isDeadly { get; set; }
-        public bool hasMonster { get; set; }
-        public bool isLocked { get; set; }
-        public List<Item> itemList { get; set; } = new List<Item>();
-        public Dictionary<Direction, Room> Paths { get; } = new();
+        Name = name;
+        Description = description;
+    }
 
-        public Room(string name, string description)
+
+    public void ConnectPaths(Room otherRoom, Direction direction)
+    {
+        Paths[direction] = otherRoom;
+    }
+
+
+    public bool Take(Inventory inventory, Item item)
+    {
+        if (item != null && itemList.Contains(item))
         {
-            Name = name;
-            Description = description;
+            itemList.Remove(item);
+            inventory.AddItem(item);
+            return true;
+        }
+        return false;
+    }
+
+
+    public Item checkItemInList(string itemId) {
+        foreach (var item in itemList) 
+        { 
+            if (item.Id == itemId) return item; 
+        } return null; 
+    }
+
+
+    public bool isItemInList(string itemId) 
+    { 
+        foreach (var item in itemList) 
+        { 
+            if (item.Id == itemId) return true; 
+        } 
+        return false; 
+    }
+
+
+    public string AllItems()
+    {
+        string returnString = "All the items in this room are: ";
+
+        if (itemList.Count == 0)
+        {
+            returnString += "there are no items available in this room";
         }
 
-        public void ConnectPaths(Room otherRoom, Direction direction)
+        for (int i = 0; i < itemList.Count; i++)
         {
-            Paths[direction] = otherRoom;
-        }
-
-        public bool Take(Inventory inventory, Item item)
-        {
-            if (item != null)
+            if (i == itemList.Count - 1)
             {
-                itemList.Remove(item);
-                inventory.AddItem(item);
-                return true;
-            }
-            return false;
-        }
-
-        public Item checkItemInList (string itemId)
-        {
-            foreach (var item in itemList)
-            {
-                if (item.Id == itemId) return item;
-            }
-            return null;
-        }
-
-        public bool isItemInList(string itemId)
-        {
-            foreach (var item in itemList)
-            {
-                if (item.Id == itemId) return true;
-            }
-            return false;
-        }
-
-        public string AllItems()
-        {
-            string returnString = "All the items in this room are: ";
-
-            if (itemList.Count == 0)
-            {
-                returnString += "there are no items available in this room";
-            }
-
-            for (int i = 0; i < itemList.Count; i++)
-            {
-                if (i == itemList.Count - 1)
-                {
-                    returnString += $"{itemList[i].Id}.";
-                }
-                else
-                {
-                    returnString += $", {itemList[i].Id}";
-                }
-            }
-            return returnString;
-        }
-
-        public string getAllPaths()
-        {
-            if (Paths.Count == 0)
-            {
-                return "There are no available paths";
+                returnString += $"{itemList[i].Id}.";
             }
             else
             {
-                string returnString = $"These are the available directions to go to from {Name}";
-                foreach (var path in Paths)
-                {
-                    returnString += path.Key.ToString() + ", ";
-                }
-                return returnString.Remove(Paths.Count - 2);
+                returnString += $", {itemList[i].Id}";
             }
         }
+        return returnString;
+    }
 
-        public override string? ToString()
+
+    public string GetAllPaths()
+    {
+        if (Paths.Count == 0)
         {
-            return $"{Name}: {Description}";
+            return "There are no available paths.";
         }
+
+
+        StringBuilder sb = new StringBuilder($"These are the available directions to go to from {Name}: ");
+        int i = 0;
+        foreach (var path in Paths)
+        {
+            sb.Append(path.Key.ToString());
+            if (i < Paths.Count - 1) sb.Append(", ");
+            i++;
+        }
+        sb.Append('.');
+        return sb.ToString();
+    }
+
+
+    public override string ToString()
+    {
+        return $"{Name}: {Description}";
     }
 }
