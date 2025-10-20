@@ -16,15 +16,15 @@ namespace TextBasedAdventure
     {
         public FightOutcome Fight(Inventory inventory, Player player)
         {
-            if (player.currentRoom.hasMonster)
+            if (player.CurrentRoom.HasMonster)
             {
-                if (inventory.isItemInList("sword"))
+                if (inventory.IsItemInList("sword"))
                 {
                     Console.WriteLine("You see the giant dragon stepping towards you.");
                     Console.WriteLine("Luckily you had picked up a very sharp sword.");
                     Console.WriteLine("With one big swing you cut the big beast.");
                     Console.WriteLine("You just defeated the monster!");
-                    player.currentRoom.hasMonster = false;
+                    player.CurrentRoom.HasMonster = false;
                     return FightOutcome.PlayerWon;
                 }
                 else

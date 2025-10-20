@@ -3,14 +3,14 @@
     public class Player
     {
         public string Name { get; set; }
-        public Room currentRoom { get; set; }
+        public Room CurrentRoom { get; set; }
         public Inventory Inventory { get; set; }
 
 
         public Player(string name, Room room, Inventory inventory)
         {
             Name = name;
-            currentRoom = room;
+            CurrentRoom = room;
             Inventory = inventory;
         }
 
@@ -18,7 +18,7 @@
 
         public bool CheckForItem(string itemId)
         {
-            return Inventory != null && Inventory.isItemInList(itemId);
+            return Inventory != null && Inventory.IsItemInList(itemId);
         }
     }
 }
