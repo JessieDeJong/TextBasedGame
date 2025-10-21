@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextBasedAdventure
+﻿namespace TextBasedAdventure
 {
     public class Inventory
     {
         private readonly List<Item> _inventory = new();
 
 
-        public void AddItem (Item item)
+        public void AddItem(Item item)
         {
             _inventory.Add(item);
         }
 
-        public void RemoveItem (Item item)
+        public void RemoveItem(Item item)
         {
             _inventory.Remove(item);
         }
@@ -30,7 +24,7 @@ namespace TextBasedAdventure
             return null;
         }
 
-        public bool IsItemInList(string itemId) //HasItem
+        public bool HasItem(string itemId)
         {
             foreach (var item in _inventory)
             {
@@ -41,21 +35,18 @@ namespace TextBasedAdventure
 
         public override string? ToString()
         {
-            string returnString = "These are the item(s) in your inventory: ";
             if (_inventory.Count == 0)
             {
-                returnString += "you do not have any items in your inventory right now.";
+                return "You do not have any items in your inventory right now.";
             }
+
+            string[] itemIds = new string[_inventory.Count];
             for (int i = 0; i < _inventory.Count; i++)
             {
-                returnString += _inventory[i].Id;
-                if (i < _inventory.Count - 1)
-                {
-                    returnString += $", {_inventory[i].Id}";
-                }
-                returnString += $"{_inventory[i].Id}.";
+                itemIds[i] = _inventory[i].Id;
             }
-            return returnString;
+
+            return "These are the item(s) in your inventory: " + string.Join(", ", itemIds) + ".";
         }
     }
 }

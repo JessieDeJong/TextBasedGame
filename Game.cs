@@ -1,25 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextBasedAdventure
+﻿namespace TextBasedAdventure
 {
     public class Game
     {
-        public bool IsGameRunning { get; set; }
+        public bool IsGameRunning { get; set; } = true;
 
 
         // readonly list of all rooms in the game
-        public IReadOnlyList<Room> AllRooms => _allRooms.AsReadOnly();
-        private readonly List<Room> _allRooms = new List<Room>();
-
-
-        public Game()
-        {
-            IsGameRunning = true;
-        }
+        public IReadOnlyList<Room> AllRooms => _allRooms;
+        private readonly List<Room> _allRooms = new();
 
 
         public Room BuildWorld()
@@ -59,14 +47,19 @@ namespace TextBasedAdventure
 
         public override string ToString()
         {
-            return @"This is a list of all the commando's:
-    - look : shows you the players inventory, the current room you are in,
-      all the items available in the current room, and all the paths you can take
-    - inventory : shows you only the players inventory
-    - go n|e|s|w : will move the player to that direction if possible
-    - take <id> : takes an item from the current room and puts it in the players inventory
-    - fight : fight a monster if present in the room
-    - quit : stops the game";
+            return @"┌────────────────────────────────────────────────────────────────────────────────┐
+│                              AVAILABLE COMMANDS                                │
+├──────────────┬─────────────────────────────────────────────────────────────────┤
+│ look         │ Shows you the players inventory, the current room you are in,   │
+│              │ all the items available in the current room, and all the paths  │
+│              │ you can take                                                    │
+│ inventory    │ Shows you only the players inventory                            │
+│ go n,e,s,w   │ Will move the player to that direction if possible              │
+│ take <id>    │ Takes an item from the current room and puts it in the players  │
+│              │ inventory                                                       │
+│ fight        │ Fight a monster if present in the room                          │
+│ quit         │ Stops the game                                                  │
+└──────────────┴─────────────────────────────────────────────────────────────────┘";
         }
     }
 }

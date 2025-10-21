@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+            //TODO: welcome screen, ask for credentials ( prob security part ), keep username for missing Player prop
+            //
             Game newGame = new Game();
             Rooms roomsHelper = new Rooms();
 
@@ -16,9 +18,7 @@
 
             Console.WriteLine("Welcome to our text based game!");
             Console.WriteLine("I will first show you the commando's then we will start your adventure...");
-            Console.WriteLine("-------------------------------");
             Console.WriteLine(newGame);
-            Console.WriteLine("-------------------------------");
 
             // Toont de speler dat die in de startroom is als het spel begint.
             Console.WriteLine($"You are in: {player.CurrentRoom.Name}");
@@ -28,13 +28,13 @@
 
             while (newGame.IsGameRunning)
             {
+
+                Utility.UserIndent(); //dit was een testje, na het een beetje te proberen heb ik het idee dat omgekeerd ook wel nice zou kunnen zijn
                 string fullUserInput = Console.ReadLine().ToLower().Trim();
                 if (string.IsNullOrWhiteSpace(fullUserInput)) continue;
 
-
                 string[] userInputParts = fullUserInput.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 string shortUserInput = userInputParts[0];
-
 
                 switch (shortUserInput)
                 {
@@ -86,7 +86,7 @@
                         {
                             if (nextRoom.IsLocked)
                             {
-                                if (playerInventory.IsItemInList("key"))
+                                if (playerInventory.HasItem("key"))
                                 {
                                     Console.WriteLine("You used the key to unlock the door!");
                                     nextRoom.IsLocked = false;
@@ -104,9 +104,12 @@
                             if (nextRoom.IsDeadly)
                             {
                                 player.CurrentRoom = nextRoom;
+                                Console.Clear();
                                 Console.WriteLine($"You moved to: {player.CurrentRoom.Name}");
                                 Console.WriteLine(player.CurrentRoom.Description);
                                 Console.WriteLine("You died, better luck next time!");
+                                Utility.GameOver();
+
                                 newGame.IsGameRunning = false;
                                 break;
                             }
@@ -114,7 +117,6 @@
                             player.CurrentRoom = nextRoom;
                             Console.WriteLine($"You moved to: {player.CurrentRoom.Name}");
                             Console.WriteLine(player.CurrentRoom.Description);
-
                         }
                         else if (direction == "n" || direction == "s" || direction == "e" || direction == "w")
                         {
@@ -129,6 +131,7 @@
                             Console.WriteLine("Take what? Use: take <itemId>");
                             break;
                         }
+
                         string itemId = userInputParts[1];
                         Room currentRoom = player.CurrentRoom;
                         Item item = currentRoom.CheckItemInList(itemId);
@@ -149,27 +152,30 @@
                         {
                             Console.WriteLine("This item is not available in this room");
                         }
+
                         break;
 
                     case "fight":
                         var outcome = roomsHelper.Fight(playerInventory, player);
                         if (outcome == FightOutcome.PlayerLost)
                         {
-                            Console.WriteLine("You died. Game over.");
+                            Utility.GameOver();
                             newGame.IsGameRunning = false;
+                            // Console.WriteLine("You died. Game over.");
                         }
+
                         break;
 
                     case "quit":
-                        newGame.IsGameRunning = false;
                         Console.WriteLine("Thanks for playing!");
+                        Console.ReadLine();
+                        newGame.IsGameRunning = false;
                         break;
 
                     default:
                         Console.WriteLine("Unknown command. Type 'help' to see available commands.");
                         break;
                 }
-
             }
         }
     }
