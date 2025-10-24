@@ -18,7 +18,7 @@
 
         public bool CheckForItem(string itemId)
         {
-            return Inventory != null && Inventory.IsItemInList(itemId);
+            return Inventory != null && Inventory.HasItem(itemId);
         }
     }
 }
