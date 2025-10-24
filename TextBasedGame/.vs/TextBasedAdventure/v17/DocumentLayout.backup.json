@@ -1,7 +1,15 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\AP 25-26\\Testing en Security\\project\\ProjectTestingAndSecurity\\TextBasedGame\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C77F6AA0-00CE-4180-AB7B-BAE93834ED9C}|..\\TextBasedAdventure.Tests\\TextBasedAdventure.Tests.csproj|c:\\ap 25-26\\testing en security\\project\\textbasedgame\\textbasedadventure.tests\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF8EBF97-D207-4E17-AFF8-88C1C337F168}|TextBasedAdventure.csproj|c:\\ap 25-26\\testing en security\\project\\textbasedgame\\textbasedgame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF8EBF97-D207-4E17-AFF8-88C1C337F168}|TextBasedAdventure.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +17,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Test1.cs",
+              "DocumentMoniker": "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedAdventure.Tests\\Test1.cs",
+              "RelativeDocumentMoniker": "..\\TextBasedAdventure.Tests\\Test1.cs",
+              "ToolTip": "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedAdventure.Tests\\Test1.cs",
+              "RelativeToolTip": "..\\TextBasedAdventure.Tests\\Test1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T21:18:51.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedGame\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedGame\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T21:18:24.337Z",
+              "EditorCaption": ""
             }
           ]
         },
