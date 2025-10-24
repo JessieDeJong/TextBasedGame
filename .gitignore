@@ -1,0 +1,12 @@
+# .NET Build Artifacts
+bin/
+obj/
+
+# Visual Studio Files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Test Artifacts
+TestResults/
