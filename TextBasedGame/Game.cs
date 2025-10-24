@@ -25,18 +25,18 @@ namespace TextBasedAdventure
         public Room BuildWorld()
         {
             var start = new Room("Entrance Hall", "A dimly lit stone hall with torches on the walls.");
-            var exit = new Room("Corridor", "A narrow corridor leading deeper into the dungeon.") { isLocked = true };
+            var exit = new Room("Corridor", "A narrow corridor leading deeper into the dungeon.") { IsLocked = true };
             var armory = new Room("Armory", "Racks of old weapons and armor. There is a sword on a table.");
-            var lair = new Room("Dragon Lair", "A huge cavern with the stench of sulfur. A massive dragon sleeps here.") { hasMonster = true };
-            var pit = new Room("Bottomless Pit", "You fell into a pit of spikes.") { isDeadly = true };
+            var lair = new Room("Dragon Lair", "A huge cavern with the stench of sulfur. A massive dragon sleeps here.") { HasMonster = true };
+            var pit = new Room("Bottomless Pit", "You fell into a pit of spikes.") { IsDeadly = true };
             var storage = new Room("Storage Closet", "A dusty storage closet. Something glints in the corner.");
 
 
             _allRooms.AddRange(new[] { start, exit, armory, lair, pit, storage });
 
 
-            armory.itemList.Add(new Item { Id = "sword", Description = "A sharp steel sword." });
-            storage.itemList.Add(new Item { Id = "key", Description = "A small iron key. It looks like it could open a simple lock." });
+            armory.ItemList.Add(new Item { Id = "sword", Description = "A sharp steel sword." });
+            storage.ItemList.Add(new Item { Id = "key", Description = "A small iron key. It looks like it could open a simple lock." });
 
             start.ConnectPaths(exit, Direction.North);
             exit.ConnectPaths(start, Direction.South);

@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace TextBasedAdventure
+﻿namespace TextBasedAdventure
 {
     internal class Program
     {
@@ -13,7 +11,7 @@ namespace TextBasedAdventure
 
             Inventory playerInventory = new Inventory();
             Player player = new Player();
-            player.currentRoom = startingRoom;
+            player.CurrentRoom = startingRoom;
             player.Inventory = playerInventory;
 
             Console.WriteLine("Welcome to our text based game!");
@@ -23,10 +21,10 @@ namespace TextBasedAdventure
             Console.WriteLine("-------------------------------");
 
             // Toont de speler dat die in de startroom is als het spel begint.
-            Console.WriteLine($"You are in: {player.currentRoom.Name}");
-            Console.WriteLine(player.currentRoom.Description);
-            Console.WriteLine(player.currentRoom.AllItems());
-            Console.WriteLine(player.currentRoom.GetAllPaths());
+            Console.WriteLine($"You are in: {player.CurrentRoom.Name}");
+            Console.WriteLine(player.CurrentRoom.Description);
+            Console.WriteLine(player.CurrentRoom.AllItems());
+            Console.WriteLine(player.CurrentRoom.GetAllPaths());
 
             while (newGame.IsGameRunning)
             {
@@ -46,9 +44,9 @@ namespace TextBasedAdventure
 
                     case "look":
                         Console.WriteLine(playerInventory);
-                        Console.WriteLine($"You are now in the {player.currentRoom.Name}");
-                        Console.WriteLine(player.currentRoom.AllItems());
-                        Console.WriteLine(player.currentRoom.GetAllPaths());
+                        Console.WriteLine($"You are now in the {player.CurrentRoom.Name}");
+                        Console.WriteLine(player.CurrentRoom.AllItems());
+                        Console.WriteLine(player.CurrentRoom.GetAllPaths());
                         break;
 
                     case "inventory":
@@ -68,16 +66,16 @@ namespace TextBasedAdventure
                         switch (direction)
                         {
                             case "n":
-                                player.currentRoom.Paths.TryGetValue(Direction.North, out nextRoom);
+                                player.CurrentRoom.Paths.TryGetValue(Direction.North, out nextRoom);
                                 break;
                             case "s":
-                                player.currentRoom.Paths.TryGetValue(Direction.South, out nextRoom);
+                                player.CurrentRoom.Paths.TryGetValue(Direction.South, out nextRoom);
                                 break;
                             case "e":
-                                player.currentRoom.Paths.TryGetValue(Direction.East, out nextRoom);
+                                player.CurrentRoom.Paths.TryGetValue(Direction.East, out nextRoom);
                                 break;
                             case "w":
-                                player.currentRoom.Paths.TryGetValue(Direction.West, out nextRoom);
+                                player.CurrentRoom.Paths.TryGetValue(Direction.West, out nextRoom);
                                 break;
                             default:
                                 Console.WriteLine("Invalid direction. Use n, e, s, or w.");
@@ -86,13 +84,13 @@ namespace TextBasedAdventure
 
                         if (nextRoom != null)
                         {
-                            if (nextRoom.isLocked)
+                            if (nextRoom.IsLocked)
                             {
-                                if (playerInventory.isItemInList("key"))
+                                if (playerInventory.IsItemInList("key"))
                                 {
                                     Console.WriteLine("You used the key to unlock the door!");
-                                    nextRoom.isLocked = false;
-                                    var keyItem = playerInventory.checkItemInList("key");
+                                    nextRoom.IsLocked = false;
+                                    var keyItem = playerInventory.CheckItemInList("key");
                                     if (keyItem != null)
                                         playerInventory.RemoveItem(keyItem);
                                 }
@@ -103,19 +101,19 @@ namespace TextBasedAdventure
                                 }
                             }
 
-                            if (nextRoom.isDeadly)
+                            if (nextRoom.IsDeadly)
                             {
-                                player.currentRoom = nextRoom;
-                                Console.WriteLine($"You moved to: {player.currentRoom.Name}");
-                                Console.WriteLine(player.currentRoom.Description);
+                                player.CurrentRoom = nextRoom;
+                                Console.WriteLine($"You moved to: {player.CurrentRoom.Name}");
+                                Console.WriteLine(player.CurrentRoom.Description);
                                 Console.WriteLine("You died, better luck next time!");
                                 newGame.IsGameRunning = false;
                                 break;
                             }
 
-                            player.currentRoom = nextRoom;
-                            Console.WriteLine($"You moved to: {player.currentRoom.Name}");
-                            Console.WriteLine(player.currentRoom.Description);
+                            player.CurrentRoom = nextRoom;
+                            Console.WriteLine($"You moved to: {player.CurrentRoom.Name}");
+                            Console.WriteLine(player.CurrentRoom.Description);
 
                         }
                         else if (direction == "n" || direction == "s" || direction == "e" || direction == "w")
@@ -123,7 +121,7 @@ namespace TextBasedAdventure
                             Console.WriteLine("You cannot go that way.");
                         }
 
-                        break; 
+                        break;
 
                     case "take":
                         if (userInputParts.Length < 2)
@@ -132,8 +130,8 @@ namespace TextBasedAdventure
                             break;
                         }
                         string itemId = userInputParts[1];
-                        Room currentRoom = player.currentRoom;
-                        Item item = currentRoom.checkItemInList(itemId);
+                        Room currentRoom = player.CurrentRoom;
+                        Item item = currentRoom.CheckItemInList(itemId);
 
                         if (item != null)
                         {

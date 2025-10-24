@@ -8,23 +8,20 @@ namespace TextBasedAdventure
 {
     public class Inventory
     {
-        public static readonly List<Item> _inventory = new List<Item>();
+        private readonly List<Item> _inventory = new();
 
-        public Inventory()
-        {
-        }
 
-        public void AddItem (Item item)
+        public void AddItem(Item item)
         {
             _inventory.Add(item);
         }
 
-        public void RemoveItem (Item item) 
+        public void RemoveItem(Item item)
         {
             _inventory.Remove(item);
         }
 
-        public Item checkItemInList(string itemId)
+        public Item CheckItemInList(string itemId) //GetItem
         {
             foreach (var item in _inventory)
             {
@@ -33,7 +30,7 @@ namespace TextBasedAdventure
             return null;
         }
 
-        public bool isItemInList(string itemId)
+        public bool IsItemInList(string itemId) //HasItem
         {
             foreach (var item in _inventory)
             {
