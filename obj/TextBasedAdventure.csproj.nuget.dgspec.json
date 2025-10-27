@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD:TextBasedGame/obj/TextBasedAdventure.csproj.nuget.dgspec.json
     "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedGame\\TextBasedAdventure.csproj": {}
   },
@@ -26,6 +27,19 @@
         "packagesPath": "C:\\Users\\dejon\\.nuget\\packages\\",
         "outputPath": "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\obj\\",
 >>>>>>> parent of 8e32542 (Moved .git to parent folder):obj/TextBasedAdventure.csproj.nuget.dgspec.json
+=======
+    "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\TextBasedAdventure.csproj": {}
+  },
+  "projects": {
+    "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\TextBasedAdventure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\TextBasedAdventure.csproj",
+        "projectName": "TextBasedAdventure",
+        "projectPath": "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\TextBasedAdventure.csproj",
+        "packagesPath": "C:\\Users\\dejon\\.nuget\\packages\\",
+        "outputPath": "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\obj\\",
+>>>>>>> parent of 8e32542 (Moved .git to parent folder)
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
