@@ -1,0 +1,2 @@
+# Make Jessie the code owner for all files
+* @JessieDeJong
