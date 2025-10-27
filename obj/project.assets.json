@@ -8,23 +8,31 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Gregory\\.nuget\\packages\\": {},
+    "C:\\Users\\dejon\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD:TextBasedGame/obj/project.assets.json
       "projectUniqueName": "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedGame\\TextBasedAdventure.csproj",
       "projectName": "TextBasedAdventure",
       "projectPath": "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedGame\\TextBasedAdventure.csproj",
       "packagesPath": "C:\\Users\\Gregory\\.nuget\\packages\\",
       "outputPath": "C:\\AP 25-26\\Testing en Security\\project\\TextBasedGame\\TextBasedGame\\obj\\",
+=======
+      "projectUniqueName": "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\TextBasedAdventure.csproj",
+      "projectName": "TextBasedAdventure",
+      "projectPath": "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\TextBasedAdventure.csproj",
+      "packagesPath": "C:\\Users\\dejon\\.nuget\\packages\\",
+      "outputPath": "C:\\AP2024-2025\\TestingSecurityProject\\TextBasedAdventure\\obj\\",
+>>>>>>> parent of 8e32542 (Moved .git to parent folder):obj/project.assets.json
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Gregory\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dejon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

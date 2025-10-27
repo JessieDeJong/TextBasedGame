@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TextBasedAdventure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD:TextBasedGame/obj/Debug/net8.0/TextBasedAdventure.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69df9a6b2359f2cd1dabcf7a6e8290928c421457")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+>>>>>>> parent of 8e32542 (Moved .git to parent folder):obj/Debug/net8.0/TextBasedAdventure.AssemblyInfo.cs
 [assembly: System.Reflection.AssemblyProductAttribute("TextBasedAdventure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TextBasedAdventure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
